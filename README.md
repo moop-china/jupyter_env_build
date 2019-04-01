@@ -22,4 +22,4 @@ docker-compose.yml完成了对指定的变量的配置，包括源镜像，volum
 
 如果想进入其控制终端，用`docker container ls`来查询`containerID`，然后执行`docker exec -it ${containerID} /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"`。
 
-注意，如果要映射宿主机中的目录作为jupyter的文件根目录，请检查权限问题，否则登录的用户会因为权限问题无法对文件进行操作。简单的办法就是`chmod 777 ${dir_path} -R`。
+**注意**，如果要映射宿主机中的目录作为jupyter的文件根目录，请检查权限问题，否则登录的用户会因为权限问题无法对文件进行操作。简单的办法就是`chmod 777 ${dir_path} -R`。

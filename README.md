@@ -18,4 +18,8 @@ docker-compose.yml完成了对指定的变量的配置，包括源镜像，volum
 
 首先，切换到jupyter_env_build目录下，在shell中执行`source env.sh`以export环境变量到当前shell，然后执行`docker-compose up`以通过当前目录下的docker-compose.yml创建新的container。
 
-注意，如果要映射宿主机中的目录作为jupyter的文件根目录，请检查权限问题，简单的办法就是`chmod 777 ${dir_path} -R`。
+如果要停止这个容器，可以在配置文件docker-compose.yml的所在目录下，使用命令`docker-compose down`。
+
+如果想进入其控制终端，用`docker container ls`来查询`containerID`，然后执行`docker exec -it ${containerID} /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"`。
+
+注意，如果要映射宿主机中的目录作为jupyter的文件根目录，请检查权限问题，否则登录的用户会因为权限问题无法对文件进行操作。简单的办法就是`chmod 777 ${dir_path} -R`。
